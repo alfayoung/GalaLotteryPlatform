@@ -1,0 +1,141 @@
+# ============================================
+# IDE and Editor Files
+# ============================================
+.idea/
+.vscode/
+*.iws
+*.iml
+*.ipr
+.DS_Store
+
+# ============================================
+# Claude Code
+# ============================================
+.claude/
+
+# ============================================
+# Build Artifacts
+# ============================================
+backend/target/
+frontend/dist/
+build/
+out/
+
+# ============================================
+# Logs
+# ============================================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ============================================
+# Runtime data
+# ============================================
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================
+# Coverage and Testing
+# ============================================
+lib-cov
+coverage
+*.lcov
+.nyc_output
+
+# ============================================
+# Dependency directories
+# ============================================
+node_modules/
+jspm_packages/
+web_modules/
+
+# ============================================
+# Build Tools
+# ============================================
+.grunt
+bower_components
+.lock-wscript
+build/Release
+
+# ============================================
+# Cache directories
+# ============================================
+*.tsbuildinfo
+.npm
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.cache
+.parcel-cache
+.temp
+
+# ============================================
+# Environment Variables & Secrets
+# ============================================
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Sensitive files
+*.jks
+*-password.txt
+*.pem
+*.key
+*.crt
+
+# ============================================
+# Package Manager
+# ============================================
+.node_repl_history
+*.tgz
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ============================================
+# Framework specific
+# ============================================
+# Next.js
+.next
+
+# Nuxt.js
+.nuxt
+
+# Gatsby
+# .cache/ (already covered above)
+
+# vuepress
+.vuepress/dist
+
+# Docusaurus
+.docusaurus
+
+# ============================================
+# Serverless
+# ============================================
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+
+# ============================================
+# Testing
+# ============================================
+.vscode-test

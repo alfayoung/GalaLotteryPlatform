@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lottery.backend.database.UserMapper">
+    <!--  namespace 定义了如何从代码中读取这段配置  -->
+
+    <select id="selectEnrolledUsers" resultType="lottery.backend.database.model.UserEntity">
+        SELECT * FROM lottery.awards WHERE enrolled IS TRUE
+    </select>
+    <select id="selectNullPrizeUsers" resultType="lottery.backend.database.model.UserEntity">
+        SELECT * FROM lottery.awards WHERE prize IS NULL AND enrolled IS TRUE
+    </select>
+    <select id="jAccountExists" resultType="boolean" parameterType="string">
+        SELECT COUNT(*) > 0 FROM lottery.awards WHERE jAccount = #{jAccount}
+    </select>
+    <select id="selectUserProfile" resultType="byte[]" parameterType="string">
+        SELECT profile FROM lottery.awards WHERE jAccount = #{jAccount}
+    </select>
+    <insert id="insertUser" parameterType="lottery.backend.database.model.UserEntity">
+        INSERT INTO lottery.awards (`jAccount`, `name`, `prize`, `enrolled`, `profile`)
+        VALUES (#{jAccount}, #{name}, #{prize}, FALSE, #{profile})
+        ON DUPLICATE KEY UPDATE
+        `name` = #{name},
+        `prize` = #{prize},
+        `enrolled` = FALSE,
+        `profile` = #{profile}
+    </insert>
+    <update id="updateUserPrize" parameterType="lottery.backend.database.model.UserEntity">
+        UPDATE lottery.awards SET prize = #{prize} WHERE jAccount = #{jAccount}
+    </update>
+    <update id="updateUserProfile" parameterType="lottery.backend.database.model.UserEntity">
+        UPDATE lottery.awards SET profile = #{profile} WHERE jAccount = #{jAccount}
+    </update>
+    <update id="setEnrolledTrue" parameterType="string">
+        UPDATE lottery.awards SET enrolled = true WHERE jAccount = #{jAccount}
+    </update>
+</mapper>
